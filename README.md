@@ -1,62 +1,31 @@
-# marussi
+# Everton Marussi — Portfolio
 
-## Project setup
-```
+English portfolio built on the existing Vue 2 / Vue CLI project, with GSAP and ScrollTrigger.
+
+## Development
+
+```sh
 npm install
-```
-
-### Compiles and hot-reloads for development
-```
 npm run serve
 ```
 
-### Compiles and minifies for production
-```
+Open `/Marussi/` on the server URL. The existing GitHub Pages base path is preserved in `vue.config.js`.
+
+```sh
+npm run lint
 npm run build
 ```
 
-### Lints and fixes files
-```
-npm run lint
-```
+## Content and assets
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Edit `src/data/portfolio.js` to set portrait, project images, email and social links. The supplied photos are imported from `src/assets/`. The two Smart Outlet award photographs form a gallery, and the UNICID hackathon has its own organizer and mentor section. Technology SVGs are served locally from `public/icons/`, with Devicon attribution and license included. Biography and timeline are in `src/views/paginaPrincipal.vue`. Styles are in `src/assets/portfolio.css`.
 
+The content is based on the supplied biography. Project descriptions distinguish the academic capstone, applied AI work and grouped professional experience. No project metrics, testimonials, proficiency percentages or repository links are invented.
 
-## V0.0.1 - Criação e estruturação da base do projeto
+## Contact
 
-- Os commits do projeto deverão seguir o padrão do conventional commits para um versionamento organizado
+Until an email is configured, the form validates required fields and copies the composed message, explicitly informing visitors that nothing has been sent. Once `email` is supplied, submission opens a prefilled email draft in the visitor's mail application. There is no backend delivery service and no claim of successful delivery. For automatic delivery, connect an appropriate backend before replacing this flow.
 
-feat → adiciona uma nova funcionalidade.
-Exemplo: feat: adicionar componente de login
+## Motion and accessibility
 
-fix → corrige um bug.
-Exemplo: fix: corrigir erro no cálculo de estoque
-
-docs → mudanças apenas na documentação.
-Exemplo: docs: atualizar README com instruções de deploy
-
-style → mudanças que não afetam a lógica, apenas estilo de código (espaços, ponto e vírgula, indentação).
-Exemplo: style: ajustar indentação no controller
-
-refactor → mudança de código que não altera comportamento, mas melhora estrutura/organização.
-Exemplo: refactor: modularizar função de autenticação
-
-perf → mudanças para melhorar performance.
-Exemplo: perf: otimizar consulta no banco
-
-test → adição/correção de testes.
-Exemplo: test: adicionar testes unitários para service de produtos
-
-build → mudanças que afetam o processo de build ou dependências externas.
-Exemplo: build: atualizar versão do webpack
-
-ci → mudanças em configuração de integração contínua (CI).
-Exemplo: ci: adicionar job para rodar testes no GitHub Actions
-
-chore → tarefas que não alteram o código de produção (scripts, configs, dependências, etc).
-Exemplo: chore: atualizar dependências do npm
-
-revert → usado para reverter um commit anterior.
-Exemplo: revert: feat: adicionar login
+GSAP drives entry reveals and the pinned Welcome sequence. Native anchor links, a keyboard-accessible mobile menu and project disclosure controls work without motion. Reduced-motion preferences remove scroll pinning and display both introduction phrases. GSAP contexts are reverted when the route is destroyed.

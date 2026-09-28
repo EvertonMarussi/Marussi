@@ -1,44 +1,68 @@
 <template>
-  <div class="container">
-    <div class="section" style="width: 100%; height: 100vh; background-color: #000;"></div>
-    <div class="section" style="width: 100%; height: 100vh; background-color: #d8ffff;"></div>
-    <div class="section" style="width: 100%; height: 100vh; background-color: #ffffd8;"></div>
-  </div>
+  <main>
+    <section id="home" class="hero">
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="hero-topline"><span>SOFTWARE DEVELOPER & COMPUTER SCIENCE STUDENT</span><span>ENGINEERING / INTELLIGENCE / AUTOMATION</span></div>
+      <div class="hero-copy"><p class="eyebrow hero-reveal">Hello, I'm Everton.</p><h1 class="hero-reveal">Marussi<span class="blue">.</span></h1><p class="hero-description hero-reveal">From the first line of code<br>to systems that <em>connect it all.</em></p><div class="hero-actions hero-reveal"><a class="button light" href="#work">Explore my work <span>↗</span></a><a class="text-link" href="#about">Meet the developer ↓</a></div></div>
+      <div class="portrait-panel hero-reveal"><div class="portrait-orbit" aria-hidden="true"></div><img v-if="portfolio.portrait" :src="portfolio.portrait" fetchpriority="high" width="500" height="500" alt="Everton Marussi Dias" class="portrait"><div v-else class="portrait-placeholder"><span class="portrait-monogram" aria-hidden="true">EM</span><span class="photo-label">PORTRAIT SPACE<br>Everton Marussi Dias</span></div><div class="portrait-caption"><span>FULL STACK.<br>FULL PICTURE.</span><span class="caption-cross">+</span></div></div>
+      <div class="hero-bottom"><span>01 / A LITTLE INTRODUCTION</span><p>Software architecture. Connected devices. Applied AI.</p><a href="#welcome" aria-label="Scroll to introduction">↓</a></div>
+    </section>
+
+    <section id="welcome" class="welcome"><div class="welcome-inner"><span class="eyebrow">EVERY SYSTEM STARTS WITH AN IDEA.</span><div class="welcome-stage"><h2 class="welcome-first">Welcome<span>...</span></h2><p class="welcome-second">To my<br><em>portfolio page.</em></p></div><span class="welcome-foot">SCROLL TO DISCOVER THE THINKING BEHIND THE CODE ↓</span></div></section>
+
+    <section id="about" class="section about"><div class="section-label"><span>01 — ABOUT ME</span><span>THE PERSON BEHIND THE SYSTEMS</span></div><div class="about-grid"><h2 class="reveal">I connect<br>the <em>dots.</em></h2><div class="about-text reveal"><p class="large-copy">I'm Everton Marussi Dias. A software developer with an automation background and a curiosity that goes beyond the screen.</p><p>I build across the complete software lifecycle: requirements, business rules, data modeling, architecture, full-stack development, infrastructure and production operations.</p><p>Industrial Automation taught me to connect software with the physical world. Computer Science is taking that foundation further, through mathematics, algorithms and Artificial Intelligence.</p><div class="about-facts"><div><span>NOW</span><strong>Software Developer</strong><small>HION Soluções e Tecnologia</small></div><div><span>NEXT CHAPTER</span><strong>Computer Science</strong><small>Degree nearing completion</small></div></div></div></div></section>
+
+    <section id="journey" class="section journey"><div class="section-label"><span>02 — THE JOURNEY</span><span>BUILT ONE LAYER AT A TIME</span></div><h2 class="reveal">A foundation.<br><em>Always evolving.</em></h2><div class="timeline"><article class="timeline-row reveal"><span class="timeline-date">FOUNDATION</span><div><h3>Where code meets hardware.</h3><h4>ETEC Júlio de Mesquita · Industrial Automation</h4><p>Completed high school integrated with technical education in Industrial Automation. Built practical experience in electronics, embedded programming, automation and the integration of software with intelligent devices.</p></div><span class="timeline-number">01</span></article><article class="timeline-row reveal"><span class="timeline-date">2023</span><div><h3>An idea with real-world recognition.</h3><h4>Smart Outlet · Capstone project</h4><p>Developed “Tomada Inteligente”, a prototype for residential electricity telemetry. Presented at the Municipal Science and Technology Week in Santo André and awarded second place.</p></div><span class="timeline-number">02</span></article><article class="timeline-row reveal"><span class="timeline-date">JUL 2024 — PRESENT</span><div><h3>Building for production.</h3><h4>HION · Information Systems Programmer</h4><p>Developing, maintaining and evolving corporate and industrial software, from requirements to deployment. Building Node.js services and Vue.js / React interfaces, integrating HTTP and gRPC APIs, modeling databases and operating containerized microservices.</p><p>Working across ERP and IoT applications for web, desktop and mobile, with user management, operational monitoring and system metrics. Applying data analysis and LSTM networks to industrial battery life prediction.</p></div><span class="timeline-number">03</span></article><article class="timeline-row reveal"><span class="timeline-date">IN PROGRESS</span><div><h3>Deepening the fundamentals.</h3><h4>Computer Science · Software Development focus</h4><p>Nearing degree completion while developing foundations in mathematics, data structures and algorithms for AI. Exploring numerical methods, linear algebra, optimization, CNNs and LSTMs alongside practical software engineering.</p></div><span class="timeline-number">04</span></article></div></section>
+
+    <section class="award section"><div class="award-number reveal">2<span>nd</span><small>PLACE / 2023</small></div><div class="award-copy reveal"><span class="eyebrow">AN IDEA. A PROTOTYPE. A MILESTONE.</span><h2>Small device.<br>Meaningful <em>recognition.</em></h2><p>Smart Outlet brought residential energy telemetry to the Municipal Science and Technology Week in Santo André.</p><p class="award-note">Institutional recognition and support involving</p><div class="institutions"><span>SEBRAE</span><span>UFABC</span><span>Parque Tecnológico de<br>Santo André</span></div></div></section>
+
+    <section id="work" class="section work"><div class="section-label"><span>03 — SELECTED WORK & APPLICATIONS</span><span>IDEAS INTO SYSTEMS</span></div><div class="section-heading"><h2 class="reveal">Different challenges.<br><em>One engineering mindset.</em></h2><p>Academic projects and professional experience across software, intelligence and connected devices.</p></div><article v-for="project in portfolio.projects" :key="project.id" class="project reveal"><div class="project-visual" :class="[project.visual, { 'project-gallery': project.id === '01' }]"><template v-if="project.id === '01'"><figure v-for="photo in portfolio.outletPhotos" :key="photo.src"><img :src="photo.src" :alt="photo.alt" loading="lazy" width="1600" :height="photo.src === portfolio.outletPhotos[0].src ? 1067 : 902"><figcaption>{{ photo.caption }}</figcaption></figure></template><img v-else-if="project.image" :src="project.image" :alt="project.imageLabel" loading="lazy"><template v-else><span class="project-visual-label">{{ project.category }}</span><span class="project-glyph" aria-hidden="true">{{ project.id === '01' ? '↯' : project.id === '02' ? 'ƒ(t)' : '{ }' }}</span><span class="image-slot">{{ project.imageLabel }}<br><small>Image space reserved</small></span></template></div><div class="project-copy"><span class="eyebrow">{{ project.id }} / {{ project.category }}</span><h3>{{ project.title }}</h3><h4>{{ project.subtitle }}</h4><p>{{ project.description }}</p><div class="tags"><span v-for="tag in project.tags" :key="tag">{{ tag }}</span></div><details><summary>Explore the context <span>+</span></summary><p>{{ project.detail }}</p></details></div></article></section>
+
+    <section id="community" class="section community">
+      <div class="section-label"><span>04 — COMMUNITY & MENTORSHIP</span><span>TECHNOLOGY IS BETTER TOGETHER</span></div>
+      <div class="community-heading reveal"><span class="role-badge">HACKATHON ORGANIZER & MENTOR</span><h2>Creating opportunities.<br><em>Building futures.</em></h2><p class="large-copy">Bringing students closer to the world of technology — and the careers they can build in it.</p></div>
+      <figure class="community-photo reveal"><img :src="portfolio.hackathon" alt="Hackathon WECTI event at Universidade Cidade de São Paulo, with organizers and participants gathered in a classroom" width="1600" height="900" loading="lazy"><figcaption>Universidade Cidade de São Paulo (UNICID) · Hackathons & technology immersion</figcaption></figure>
+      <div class="community-content"><div class="reveal"><span class="eyebrow">UNIVERSIDADE CIDADE DE SÃO PAULO</span><h3>From the classroom<br>to real-world challenges.</h3><p>I organize and mentor university hackathons, creating immersive technology experiences that connect students with the professional world. These events bring learning, collaboration and practical problem-solving into the same room.</p></div><div class="community-roles reveal"><article><span>01 / ORGANIZER</span><h3>Making the experience happen.</h3><p>I help organize hackathon events at UNICID, bringing students together to explore technology and its applications in the job market.</p></article><article><span>02 / MENTOR</span><h3>Supporting the next generation.</h3><p>As a mentor, I guide students through their technical challenges, sharing practical experience and helping them turn ideas into solutions.</p></article></div></div>
+    </section>
+
+    <section id="stack" class="section stack"><div class="section-label"><span>05 — THE TOOLKIT</span><span>TOOLS FOLLOW THE CHALLENGE</span></div><div class="section-heading"><h2 class="reveal">Built with intent.<br><em>Backed by fundamentals.</em></h2><p>From a device to a distributed system, choosing the right tools for each layer.</p></div><div class="stack-grid"><article v-for="(group, index) in portfolio.stack" :key="group.name" class="stack-group reveal"><span class="stack-index">0{{ index + 1 }} /</span><h3>{{ group.name }}</h3><p>{{ group.note }}</p><ul><li v-for="item in group.items" :key="item"><span v-if="portfolio.icons[item]" class="tech-icon"><img :src="asset('icons/' + portfolio.icons[item] + '.svg')" alt="" width="28" height="28" loading="lazy"></span><span v-else class="tech-marker" aria-hidden="true">/</span>{{ item }}</li></ul></article></div><div class="principles"><span>ARCHITECTURE</span><span>RELIABILITY</span><span>INTEGRATION</span><span>CURIOSITY</span></div></section>
+
+    <section id="contact" class="section contact"><div class="section-label"><span>06 — WHAT'S NEXT?</span><span>LET'S START A CONVERSATION</span></div><div class="contact-grid"><div class="reveal"><h2>Good things<br>start with<br><em>“hello”.</em></h2><p>Have a project in mind, a technical challenge, or an idea to exchange? I'd love to hear it.</p><div class="social-links"><a v-if="portfolio.email" :href="'mailto:' + portfolio.email">{{ portfolio.email }} ↗</a><a v-if="portfolio.github" :href="portfolio.github" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a v-if="portfolio.linkedin" :href="portfolio.linkedin" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></div></div><form class="contact-form reveal" @submit.prevent="contact"><label for="name">01 / Your name</label><input id="name" v-model.trim="form.name" name="name" autocomplete="name" placeholder="How should I call you?" maxlength="120" required><label for="email">02 / Your email</label><input id="email" v-model.trim="form.email" name="email" type="email" autocomplete="email" placeholder="you@example.com" maxlength="254" required><label for="message">03 / Your message</label><textarea id="message" v-model.trim="form.message" name="message" placeholder="Tell me a little about your idea..." rows="4" maxlength="5000" required></textarea><p v-if="!portfolio.email" class="form-note">Direct contact is being set up. You can copy your message below.</p><p v-else class="form-note">This opens your email app with the message ready to send.</p><button class="button light" type="submit">{{ portfolio.email ? 'Open email draft' : 'Copy message' }} <span>↗</span></button><p class="form-status" role="status">{{ formStatus }}</p></form></div></section>
+  </main>
 </template>
-
 <script>
-
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import portfolio from '../data/portfolio'
+gsap.registerPlugin(ScrollTrigger)
 export default {
-  name: 'paginaPrincipal',
-  components: {
-    
+  name: 'PortfolioHome',
+  data: () => ({ portfolio, form: { name: '', email: '', message: '' }, formStatus: '' }),
+  mounted() {
+    this.motion = gsap.matchMedia()
+    this.motion.add('(prefers-reduced-motion: no-preference)', () => {
+      gsap.from('.hero-reveal', { y: 36, opacity: 0, duration: 1.15, stagger: 0.13, ease: 'power3.out', clearProps: 'all' })
+      gsap.utils.toArray('.reveal').forEach(el => gsap.from(el, { y: 35, opacity: 0, duration: 0.85, ease: 'power2.out', scrollTrigger: { trigger: el, start: 'top 92%', once: true }, clearProps: 'all' }))
+      const tl = gsap.timeline({ scrollTrigger: { trigger: '.welcome', start: 'top top', end: '+=150%', scrub: 0.8, pin: true, anticipatePin: 1 } })
+      tl.to('.welcome', { backgroundColor: '#1439dd', duration: 1 }, 0).to('.welcome-first', { opacity: 0, y: -70, scale: 0.88, duration: 1 }, 0.5).fromTo('.welcome-second', { opacity: 0, y: 80 }, { opacity: 1, y: 0, duration: 1 }, 1.1).to('.welcome', { backgroundColor: '#070a12', duration: 1 }, 2.3)
+      gsap.to('.portrait-orbit', { rotation: 120, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1 } })
+    })
+  },
+  beforeDestroy() { if (this.motion) this.motion.revert() },
+  methods: {
+    asset(path) { return process.env.BASE_URL + path.replace(/^\//, '') },
+    async contact() {
+      if (!this.form.name || !this.form.message) { this.formStatus = 'Please add your name and a message.'; return }
+      const message = `Name: ${this.form.name}\nEmail: ${this.form.email}\n\n${this.form.message}`
+      if (this.portfolio.email) {
+        window.location.href = `mailto:${this.portfolio.email}?subject=${encodeURIComponent('Portfolio inquiry from ' + this.form.name)}&body=${encodeURIComponent(message)}`
+        this.formStatus = 'Your email draft is ready. Send it from your email app.'
+      } else {
+        try { await navigator.clipboard.writeText(message); this.formStatus = 'Message copied. Nothing has been sent.' }
+        catch (_) { this.formStatus = 'Copy is unavailable in this browser. Please select and copy your message manually. Nothing has been sent.' }
+      }
+    }
   }
 }
 </script>
-
-<style>
-
-html, body{
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  scroll-behavior: smooth; 
-}
-
-.container {
-  height: 100vh; 
-  overflow-y: scroll; 
-  scroll-snap-type: y mandatory; 
-}
-
-.section {
-  height: 100vh; 
-  scroll-snap-align: start; 
-  
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 3rem;
-}
-
-</style>
+<style src="../assets/portfolio.css"></style>
