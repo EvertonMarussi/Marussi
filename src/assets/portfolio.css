@@ -26,3 +26,12 @@
 .contact-form input,.contact-form textarea{background:#fff;color:#172137;border:1px solid #d9e0ef;border-radius:7px;padding:16px 18px;box-shadow:0 5px 18px #00000012}.contact-form input::placeholder,.contact-form textarea::placeholder{color:#59667a;opacity:1}.contact-form input:focus,.contact-form textarea:focus{border-color:#6386ff;outline:3px solid #6386ff66;outline-offset:2px}.contact-form label{color:#dce5f9;font-size:.875rem}
 @media(max-width:1000px){nav{gap:22px}.community-content{gap:6%}}
 @media(max-width:650px){.community-content{grid-template-columns:1fr;gap:25px}.community-heading .large-copy{font-size:1.15rem}.role-badge{font-size:.75rem;padding:10px 13px}.community-photo{margin-bottom:30px}.project-gallery{gap:14px}.tech-icon{width:34px;height:34px}.tech-icon img{width:24px;height:24px}.tech-marker{width:34px}.stack-group li{gap:8px;overflow-wrap:anywhere}.portrait{padding-top:0}}
+
+.social-links{gap:14px}.contact-channel{display:flex;align-items:center;gap:15px;width:100%;max-width:420px;padding:18px;border:1px solid #ffffff35;border-radius:8px;background:#ffffff06;transition:background .2s,border-color .2s}.contact-channel:hover{background:#ffffff10;border-color:#8faaff}.channel-icon{display:grid;place-items:center;width:44px;height:44px;flex-shrink:0;background:#e7edff;border-radius:10px}.channel-icon img{display:block}.contact-channel strong{display:block;font-size:1rem;font-weight:600}.contact-channel small{display:block;font-size:.875rem;color:#b7c7e2;margin-top:5px;overflow-wrap:anywhere}.contact-channel>span:nth-child(2){min-width:0}.channel-arrow{margin-left:auto;font-size:1.2rem}.whatsapp-channel .channel-icon{background:#7de8ad}.whatsapp-channel:hover{border-color:#7de8ad;background:#7de8ad0c}
+@media(max-width:380px){.contact-channel{padding:14px;gap:10px}.contact-channel small{font-size:.8rem}.channel-icon{width:38px;height:38px}}
+
+/* Espaço para os títulos e a navegação em português. */
+.welcome-first{font-size:clamp(3rem,9vw,9rem)}
+@media(min-width:651px){.site-header nav{gap:22px}.nav-contact{margin-left:0}.contact h2{font-size:clamp(3rem,5.8vw,6rem)}}
+@media(min-width:651px) and (max-width:1000px){.site-header{padding-left:3%;padding-right:3%}.site-header nav{gap:14px}.nav-contact{padding:12px}.nav-contact span{padding-left:10px}}
+@media(max-width:650px){.welcome-first{font-size:12vw}.hero-topline{max-width:320px}.hero{min-height:1010px}.contact h2{font-size:clamp(2.7rem,12vw,3.8rem)}.section-heading h2,.community-heading h2{overflow-wrap:normal;font-size:clamp(2rem,8.7vw,2.8rem)}}
